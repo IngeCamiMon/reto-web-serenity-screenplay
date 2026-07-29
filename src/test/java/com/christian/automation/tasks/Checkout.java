@@ -1,0 +1,38 @@
+package com.christian.automation.tasks;
+
+import com.christian.automation.userinterfaces.InventoryPage;
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.Tasks;
+import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
+
+public class Checkout implements Task {
+
+    @Override
+    public <T extends Actor> void performAs(T actor) {
+
+        actor.attemptsTo(
+
+                Click.on(InventoryPage.BTN_CHECKOUT),
+
+                Enter.theValue("Christian")
+                        .into(InventoryPage.TXT_FIRSTNAME),
+
+                Enter.theValue("Montano")
+                        .into(InventoryPage.TXT_LASTNAME),
+
+                Enter.theValue("050001")
+                        .into(InventoryPage.TXT_POSTAL),
+
+                Click.on(InventoryPage.BTN_CONTINUE),
+
+                Click.on(InventoryPage.BTN_FINISH)
+
+        );
+    }
+
+    public static Checkout compra() {
+        return Tasks.instrumented(Checkout.class);
+    }
+}

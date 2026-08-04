@@ -6,6 +6,8 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
 public class Checkout implements Task {
 
@@ -15,6 +17,11 @@ public class Checkout implements Task {
         actor.attemptsTo(
 
                 Click.on(InventoryPage.BTN_CHECKOUT),
+
+                WaitUntil.the(
+                        InventoryPage.TXT_FIRSTNAME,
+                        WebElementStateMatchers.isVisible()
+                ),
 
                 Enter.theValue("Christian")
                         .into(InventoryPage.TXT_FIRSTNAME),
@@ -26,6 +33,11 @@ public class Checkout implements Task {
                         .into(InventoryPage.TXT_POSTAL),
 
                 Click.on(InventoryPage.BTN_CONTINUE),
+
+                WaitUntil.the(
+                        InventoryPage.BTN_FINISH,
+                        WebElementStateMatchers.isVisible()
+                ),
 
                 Click.on(InventoryPage.BTN_FINISH)
 

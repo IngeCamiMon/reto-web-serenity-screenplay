@@ -7,6 +7,5 @@ pool:
 steps:
 
 - script: |
-    "C:\Herramientas\apache-maven-3.9.16\bin\mvn.cmd" -version
     "C:\Herramientas\apache-maven-3.9.16\bin\mvn.cmd" clean verify
   displayName: 'Ejecutar Serenity Tests'

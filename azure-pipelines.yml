@@ -5,7 +5,8 @@ pool:
   name: 'ChristianPool'
 
 steps:
+
 - script: |
-    mvn -version
-    mvn clean verify
+    "C:\Herramientas\apache-maven-3.9.16\bin\mvn.cmd" -version
+    "C:\Herramientas\apache-maven-3.9.16\bin\mvn.cmd" clean verify
   displayName: 'Ejecutar Serenity Tests'
